@@ -1,0 +1,31 @@
+---
+page:
+    title: my page
+name: Stephen
+myButton:
+  text: testing
+  color: blue
+allButtons:
+    -
+        text: testing button 1
+        color: red
+    -
+        text: testing button 2
+        color: orange
+---
+{% import 'lib/atoms.njk' as atoms %}
+{% import 'lib/molecules.njk' as molecules %}
+
+<div id="app"></div>
+
+<div>
+    {{ atoms.h1('hi ' + name) }}
+    {{ atoms.button(myButton) }}
+
+    {{ molecules.buttons([
+        { text: 'button-1', color: 'blue' },
+        { text: 'button-2', color: 'red' }
+    ]) }}
+
+    {{ molecules.buttons(allButtons) }}
+</div>

@@ -1,0 +1,7 @@
+{% import 'lib/atoms.njk' as atoms %}
+
+{% macro buttons(props) %}
+    {% for button in props %}
+        {{ atoms.button(button) }}
+    {% endfor %}
+{% endmacro %}

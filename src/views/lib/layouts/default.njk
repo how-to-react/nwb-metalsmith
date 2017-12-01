@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ page.title }}</title>
+    {% for style in assets.styles %}
+        <link rel="stylesheet" href="{{ style }}">
+    {% endfor %}
+</head>
+<body>
+{{ contents | safe }}
+
+{% if(assets.manifest) %}
+    <script type="application/javascript">{{ assets.manifest.content() | safe }}</script>
+{% endif %}
+{% if(assets.vendor) %}
+    <script type="text/javascript" src="{{ assets.vendor.url }}"></script>
+{% endif %}
+{% if(assets.app) %}
+    {#<script type="application/javascript">{{ assets.app.content() | safe }}</script>#}
+    <script type="text/javascript" src="{{ assets.app.url }}"></script>
+{% endif %}
+</body>
+</html>
